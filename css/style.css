@@ -53,6 +53,7 @@ body {
   /* these two properties are with respect to parent element i.e. header */
   transform: translate(-50%, -50%);
   /* this property is with respect to the element itself */
+  text-align: center ;
 }
 
 .heading-primary {
@@ -60,6 +61,7 @@ body {
   text-transform: uppercase;
 /* to remove the shaking during animation */
   backface-visibility: hidden;
+  margin-bottom:60px ;
 }
 
 .heading-primary-main {
@@ -126,4 +128,79 @@ so we are going to use opacity and transform: translate property
   opacity: 1;
   transform: translateX(0);
   }
+}
+
+@keyframes moveInBottom{
+  0%{
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  
+  100%{
+  opacity: 1;
+  transform: translateY(0);
+  }
+}
+
+/* doing this so that the styling doesn't change after the link has been opened once */
+.btn:link, 
+.btn:visited{
+text-transform: uppercase;
+text-decoration: none;
+/* transition is also a type of animation(basic)
+here 'transition all' will take all the properties 
+on which it can perform animation.  */
+transition: all 0.2s;
+position: relative;
+
+}
+
+.btn-white{
+  background-color: #fff;
+  color: #777;
+  padding: 15px 40px;
+  display:  inline-block ;
+  border-radius: 40px;
+
+}
+
+.btn:hover{
+ transform:translateY(-3px);
+ box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+/* box shadow values: offsetX offsetY blurvalue color */
+}
+
+.btn:active{
+  transform: translateY(-1px);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.9); 
+}
+
+.btn::after{
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.btn-white::after{
+  background-color: #fff;
+
+}
+
+.btn:hover::after{
+transform: scaleX(1.4) scaleY(1.6);
+opacity: 0;
+}
+
+.btn-animated{
+  animation: moveInBottom 5s  ease-out 0.75 ;
+  animation-fill-mode: backwards;
+  /* this backwards property isn't required anymore  */
 }
