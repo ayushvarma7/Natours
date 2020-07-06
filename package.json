@@ -1,0 +1,23 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Landing page for noatours\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[\u001b[\u001b[C\u001b[Datours\u001b[3~\u001b[",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayushvarma7/Natours.git"
+  },
+  "author": "Ayush",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayushvarma7/Natours/issues"
+  },
+  "homepage": "https://github.com/ayushvarma7/Natours#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  }
+}

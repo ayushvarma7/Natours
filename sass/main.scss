@@ -1,0 +1,195 @@
+
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark: #777;
+$color-white: #fff;
+$color-black: #000;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 30px;
+}
+
+// B.E.M Approach for nesting
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.801),
+      rgba($color-primary-dark, 0.801)
+    ),
+    url(../img/hero.jpg);
+  /* used to place to images in the BG img */
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* advance property to trim the image */
+  position: relative;
+
+  &__logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+  }
+  &__logo {
+    height: 35px;
+  }
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* these two properties are with respect to parent element i.e. header */
+    transform: translate(-50%, -50%);
+    /* this property is with respect to the element itself */
+    text-align: center;
+  }
+}
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  /* to remove the shaking during animation */
+  backface-visibility: hidden;
+  margin-bottom: 60px;
+  &--main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+
+    animation: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /* animation-delay: 3s;
+      animation-iteration-count:3 ; 
+      */
+  }
+  &--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 15px;
+
+    animation: moveInRight 1s ease-out;
+  }
+}
+
+/* Adding advanced animations 
+  Browsers best work with generally 2 animations only
+  so we are going to use opacity and transform: translate property
+  */
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    opacity: 0.8;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    opacity: 0.8;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn {
+  /* doing this so that the styling doesn't change after the link has been opened once */
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    /* transition is also a type of animation(basic)
+  here 'transition all' will take all the properties 
+  on which it can perform animation.  */
+    transition: all 0.2s;
+    position: relative;
+  }
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 40px;
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 10px 20px rgba($color-black 0.2);
+    /* box shadow values: offsetX offsetY blurvalue color */
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0px 5px 10px rgba($color-black 0.9);
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75;
+    animation-fill-mode: backwards;
+    /* this backwards property isn't required anymore  */
+  }
+}
