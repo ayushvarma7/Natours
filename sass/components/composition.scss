@@ -1,0 +1,41 @@
+.composition {
+  position: relative;
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rbga($color-black, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 4;  //any arbitrary value
+    transition: all .2s;
+    outline-offset: 2rem;  //gives 2rem of border b/w outline and picture 
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--p2 {
+        right: 1rem;
+        top: 2rem;
+      }
+ 
+    &--p3 {
+        left: 20%;
+        top: 10rem;
+      }
+      &:hover{
+        //   green outline
+        outline: 1.2rem solid $color-primary;
+          transform: scale(1.05) translateY(-2rem);
+          box-shadow: 0 2.5rem 4rem rbga($color-black, 0.5);
+          z-index: 7;  //higher than original
+      }
+  }
+
+  &:hover &__photo:not(:hover)// 1) means to select from the those images which 
+//   are not hovered on from the overall composition hover.
+// 2) also means that when we hover over composition then select
+// the composition photo which is not hovered on
+  {
+      transform: scale(.95);
+  }
+}
