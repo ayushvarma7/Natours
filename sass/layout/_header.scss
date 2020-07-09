@@ -10,6 +10,9 @@
     /* used to place to images in the BG img */
     background-size: cover;
     background-position: top;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    // writing twice as this is a modern property hence we need to use it's prefix 
+    // for compatibility in all the browsers 
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     /* advance property to trim the image */
     position: relative;
