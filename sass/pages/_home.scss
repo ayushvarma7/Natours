@@ -34,6 +34,7 @@ margin-top: -10rem;
 }
 
 .section-stories{
-  padding: 15rem 0;
-  background-color: $color-light-grey-1; 
+  padding: 15rem 0;  
+  position: relative;  
+  // so that bg-video can be positioned used absolute positioning 
 }
