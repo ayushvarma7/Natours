@@ -1,0 +1,72 @@
+.story{
+    widows: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+    background-color: $color-white;
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+    //skewing the story container
+
+    // & > *{
+    //     transform: skewX(12deg);
+    //     //countering the effect
+    //     // but till now it will not work for story shape
+    //     // as developers haven't implemented 2 transform property
+    //     // on a single element
+    //     // therefore we will apply this individually to text and shape
+    // }
+ 
+
+     &__shape{
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        shape-outside: circle(50% at 50% 50%);
+       //circle(radius[we have taken wrt height and width] at centre points)  
+    //    for shape-outside to work we need to use float 
+    clip-path: circle(50% at 50% 50%); 
+    // to form a circle
+    transform: translateX(-3rem) skewX(12deg); //to create a margin and skew
+    position: relative;
+     } 
+  
+     &__img{
+         height: 100%; //100% height of the circular shape 
+         transform: translateX(-4rem) scale(1.4); 
+         transition: all .3s;  
+     }
+
+     &__text{
+        transform: skewX(12deg);
+        
+     }
+
+     &__caption{
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform:translate(-50%, 20%);  
+         color: $color-white; 
+         text-transform: uppercase;
+         font-size: 1.7rem; 
+         text-align: center;
+         opacity: 0;
+         transition: all .2s;
+         backface-visibility: hidden;
+     } 
+
+     &:hover &__caption{
+         opacity: 1;
+         transform: translate(-50%, -50%);       
+
+     }
+
+     &:hover &__img{
+         transform: translateX(-4rem) scale(1) ; 
+        filter: blur(3px) brightness(80%); 
+        // css property for blurring the BG and brightness control
+     }
+}  
