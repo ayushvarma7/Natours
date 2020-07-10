@@ -38,3 +38,26 @@ margin-top: -10rem;
   position: relative;  
   // so that bg-video can be positioned used absolute positioning 
 }
+
+.section-book{
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark); 
+
+}
+
+.book{
+  background-image: linear-gradient(110deg,  //angle at which thwe gradient occurs wrt to x-axis
+   rgba($color-white, .9), 0%, //0% means at initial position only white will occur
+   rgba($color-white, .9) 50%, //50% means at halfway position only white will occur
+    transparent 50%) ,  
+    url(../img/nat-10.jpg);
+  background-size: cover; 
+  border-radius: 3px;
+  box-shadow: 0rem 3rem 4rem rgba($color-black, .15); 
+   height: 50rem; 
+
+   &__form{
+     width: 50%;
+    padding: 6rem;
+   }
+}
