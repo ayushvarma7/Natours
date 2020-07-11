@@ -14,10 +14,11 @@
 @import "components/composition.scss";
 @import "components/feature-box"; 
 @import "components/form.scss";  
-@import "components/story";
-                                            
-@import "layout/header";
+@import "components/story";     
+ 
 @import "layout/grid";
+@import "layout/header";
+@import "layout/footer"; 
                 
 @import "pages/home";
  
