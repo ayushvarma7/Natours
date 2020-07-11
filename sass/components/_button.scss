@@ -1,6 +1,6 @@
 .btn {
-  /* doing this so that the styling doesn't change after the link has been opened once */
-  &:link,
+  &, //only for <button> element
+  &:link,/* doing this so that the styling doesn't change after the link has been opened once */
   &:visited {
     text-transform: uppercase;
     text-decoration: none;
@@ -13,6 +13,10 @@
     transition: all 0.2s;
     position: relative;
     font-size: $default-font-size;
+
+    //Some changes for the <button> element
+    border: none;
+    cursor: pointer;
 
   }
   &--white {
@@ -43,7 +47,8 @@
     }
   }
 
-  &:active {
+  &:active, &:focus { 
+    outline: none ;//used to remove the outline on the <button> element when clicked
     transform: translateY(-1px);
     box-shadow: 0px 5px 10px rgba($color-black, 0.9);
   }
