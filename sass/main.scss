@@ -11,14 +11,15 @@
 @import "components/bg-video.scss";  
 @import "components/button";
 @import "components/card"; 
-@import "components/composition.scss";
+@import "components/composition.scss";  
 @import "components/feature-box"; 
 @import "components/form.scss";  
 @import "components/story";     
  
+@import "layout/footer"; 
 @import "layout/grid";
 @import "layout/header";
-@import "layout/footer"; 
+@import "layout/navigation";       
                 
 @import "pages/home";
  
