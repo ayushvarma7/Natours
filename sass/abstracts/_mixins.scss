@@ -12,3 +12,41 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+// MEDIA QUERY MANAGER
+/*
+0-600px:     Phone
+600-900px:     Tablet potrait
+900-1200px:     Tablet landscape
+[1200-1800]px: is where our normal styles lies
+1800px: Big desktop
+
+breakpoint argument choices:
+-phone
+-tab-port
+-tab-land
+-big-desktop
+
+ORDER: BASE + TYPOGRAPHY > GENERAL LAYOUT + GRID > PAGE LAYOUT > COMPONENTS 
+
+we will use ems in media queries and not rems
+1em=16px(default browser font)
+not using pixels as ems change with font size change in browser
+*/
+
+@mixin  respond($breakpoint) {
+    @if $breakpoint==phone{
+        @media(max-width:37.5em){@content};  // 600px
+    }
+    @if $breakpoint==tab-port{
+        @media(max-width: 56.25em){@content}; // 900px
+    }
+    @if $breakpoint==tab-land{
+        @media(max-width: 75em){@content}; // 1200px
+    }
+    @if $breakpoint==big-desktop{
+        @media(min-width: 112.5rem){@content}; // 1800px
+    }
+    
+    
+}

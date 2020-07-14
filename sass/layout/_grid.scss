@@ -4,7 +4,17 @@
   margin: 0 auto;
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port){
+      margin-bottom: $gutter-vertical-small;
+    }
   }
+
+  @include respond(tab-port){ //reducing the width of rows when <600px
+    max-width: 50rem;   
+    padding:0rem 3rem ;
+  }
+
   @include clearfix;
   //   using attribute
   [class^="col-"] //this(^) means all the class starting with col-
@@ -13,6 +23,14 @@
     float: left;
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+
+      @include respond(tab-port){
+        margin-right: 0; 
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+    @include respond(tab-port){
+      width: 100% !important;
     }
   }
 

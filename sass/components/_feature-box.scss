@@ -6,6 +6,10 @@ text-align: center;
 border-radius: 3px;
 box-shadow: 0rem 1.5rem 4rem rgba($color-black, .15);
 transition: all .2s;
+
+@include respond(tab-port){
+    padding: 1.5rem;
+}
     &__icon{
         font-size: 6rem;
         margin-bottom: .5rem;
@@ -14,6 +18,10 @@ transition: all .2s;
     // new property to apply BG image only to text
     -webkit-background-clip: text;
     color: transparent;
+
+    @include respond(tab-port){
+        margin-bottom:0rem;  
+    }
     }
 
     &:hover{
