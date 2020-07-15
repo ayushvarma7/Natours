@@ -69,9 +69,24 @@
                 </div>
                 <div class="col-1-of-2">
                     <div class="composition">
-                        <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
+                        <!--3) RESOLUTION SWITCHING method, sizes: we define viewport for diff widths
+                             eg at 900px img was 151 px so 151/900=18vw(viewport width), last one(300px) 
+                             is the width  of image at default screen size  -->
+                        <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                        sizes="(max-width:900px) 18vw, (max-width:600px) 26vw, 300px"
+                        src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
+
+                        <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                        sizes="(max-width:900px) 18vw, (max-width:600px) 26vw, 300px"
+                        src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
+
+                        <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                        sizes="(max-width:900px) 18vw, (max-width:600px) 26vw, 300px"
+                        src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+
+                        <!-- <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
                         <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
-                        <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+                        <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3"> -->
                     </div>
                 </div>
             </div>
@@ -231,7 +246,10 @@
             <div class="row">
                 <div class="story">
                     <figure class="story__shape">
-                        <img src="img/nat-8.jpg" alt="Person on a tour" class="story__img">
+                        <img src="img/nat-8.jpg" srcset="img/nat-8.jpg"
+                        sizes="(max-width:900px) 20vw, (max-width:600px) 30vw, 225px" 
+                        alt="Person on a tour" class="story__img">
+                        <!-- <img src="img/nat-8.jpg" alt="Person on a tour" class="story__img"> -->
                         <figcaption class="story__caption">Mary Smith</figcaption>
                     </figure>
                     <div class="story__text">
@@ -251,7 +269,10 @@
             <div class="row">
                 <div class="story">
                     <figure class="story__shape">
-                        <img src="img/nat-9.jpg" alt="Person on a tour" class="story__img">
+                        <img src="img/nat-9.jpg" srcset="img/nat-9.jpg"
+                        sizes="(max-width:900px) 20vw, (max-width:600px) 30vw, 218px"
+                         alt="Person on a tour" class="story__img" >
+                        <!-- <img src="img/nat-9.jpg" alt="Person on a tour" class="story__img"> -->
                         <figcaption class="story__caption">John Doe</figcaption>
                     </figure>
                     <div class="story__text">
@@ -315,11 +336,24 @@
                 </div>
             </div>
         </section>
-
         <footer class="footer">
             <div class="footer__logo-box">
-                <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
-            </div>
+        <!-- 2) ART DIRECTION(responsive image); we use picture element so that we can
+             specify multiple sources for one image in the the source element
+            Now in the source element we use media query to force browser to use above images 
+            if the width is below the specified value, otherwise the below images by using srcset
+        which is done using DENSITY SWITCHING--> 
+                <picture class="footer__logo">
+                    <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x"
+                     media="(max-width:37.5em)"> 
+                <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" src="img/logo-green-2x.png"> 
+                </picture>
+                <!-- <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" >
+                 srcset is used for DENSITY SWITCHING(responsive image), it will provide 1x image for low res display
+                     and 2x image for high end display 
+                    Note:we are using src just in case client is using older browser,
+                    if new then src will be ignored for srcset--> 
+            </div>  
             <div class="row">
                 <div class="col-1-of-2">
                     <div class="footer__navigation">

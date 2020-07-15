@@ -1,5 +1,5 @@
 .story{
-    widows: 75%;
+    width: 75%;
     margin: 0 auto;
     box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
     background-color: rgba($color-white, .6);  
@@ -8,6 +8,20 @@
     padding-left: 9rem;
     font-size: $default-font-size;
     transform: skewX(-12deg);
+
+    @include respond(tab-port){
+        width: 100%;  
+        padding: 4rem;
+        padding-left: 7rem;  
+
+    }
+    @include respond(phone){
+        transform: skewX(0deg);
+        width: 100%;  
+        padding: 4rem;
+        padding-left: 7rem;  
+    }
+    
     //skewing the story container
 
     // & > *{
@@ -31,6 +45,11 @@
     // to form a circle
     transform: translateX(-3rem) skewX(12deg); //to create a margin and skew
     position: relative;
+
+    @include respond(phone){
+        //now since there in no skewing, so there shouldn't be no re-skewing
+        transform: translateX(-3rem) skewX(0deg);
+        }
      } 
   
      &__img{
@@ -41,7 +60,10 @@
 
      &__text{
         transform: skewX(12deg);
-        
+        @include respond(phone){
+            //now since there in no skewing, so there shouldn't be no re-skewing
+            transform: skewX(0deg); 
+            }
      }
 
      &__caption{

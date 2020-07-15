@@ -1,153 +1,237 @@
-.card{
-    // FUNCTIONALITY
-perspective: 150rem;
--moz-perspective: 150rem;
-// used for the rotation effect in the tours section
-height: 52rem;
-// height of entire card
-position: relative;
-    &__side{
-        height: 52rem;
-        // height of both the sides of the card
-        transition: all .5s ease; 
-        position: absolute;
-            left: 0rem; 
-            top: 0rem;
-           width: 100%;
-           backface-visibility: hidden; //it hides the back side of the element
-           border-radius: 3px;
-           overflow: hidden; //to avoid overflow of image which prevented the rounding of edges
-           box-shadow: 0rem 1.5rem 4rem rgba($color-black, .15);
+.card {
+  // FUNCTIONALITY
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  // used for the rotation effect in the tours section
+  height: 52rem;
+  // height of entire card
+  position: relative;
+  &__side {
+    height: 52rem;
+    // height of both the sides of the card
+    transition: all 0.5s ease;
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    width: 100%;
+    backface-visibility: hidden; //it hides the back side of the element
+    border-radius: 3px;
+    overflow: hidden; //to avoid overflow of image which prevented the rounding of edges
+    box-shadow: 0rem 1.5rem 4rem rgba($color-black, 0.15);
 
-        &--front{
-            background-color: $color-white; 
-          
-        }
-        &--back{ 
-            transform: rotateY(-180deg);
-            // the back side at starting is already rotated by  
-            // 180deg that's why it isn't visible 
-            
-            &--1{  
-                background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8));
-            }
-             
-            &--2{  
-                background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8));
-            }
-             
-            &--3{  
-                background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, 0.8), rgba($color-tertiary-dark, 0.8));
-            }
-        }
+    &--front {
+      background-color: $color-white;
     }
-   
-    &:hover &__side--front //.card:hover .card__side--front
-    {
-        transform: rotateY(180deg) ;
-        // background-color: orchid;
-    }
+    &--back {
+      transform: rotateY(-180deg);
+      // the back side at starting is already rotated by
+      // 180deg that's why it isn't visible
 
-    &:hover &__side--back{
-        transform: rotateY(0deg);
-    }
+      &--1 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-secondary-light, 0.8),
+          rgba($color-secondary-dark, 0.8)
+        );
+      }
 
-    // FRONT SIDE STYLING 
-    &__picture{
-        background-size: cover; 
-        height: 23rem;
-      background-blend-mode: screen; 
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100% );
-        // writing twice as this is a modern property hence we need to use it's prefix 
-        // for compatibility in all the browsers 
-        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100% );
-        &--1{ 
-            background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 1), rgba($color-secondary-dark, 1)), url(../img/nat-5.jpg);
-            // This is adding 2 background images, but to blend them we use BG blend
-        }
-        &--2{
-            background-image: linear-gradient(to right bottom, rgba($color-primary-light, 1), rgba($color-primary-dark, 1)), url(../img/nat-6.jpg);
-        }
-        &--3{
-            background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, 1), rgba($color-tertiary-dark, 1)), url(../img/nat-7.jpg);
-        }  
-    } 
-//HEADING
-&__heading{
+      &--2 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-primary-light, 0.8),
+          rgba($color-primary-dark, 0.8)
+        );
+      }
+
+      &--3 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-tertiary-light, 0.8),
+          rgba($color-tertiary-dark, 0.8)
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front //.card:hover .card__side--front
+  {
+    transform: rotateY(180deg);
+    // background-color: orchid;
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+
+  // FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    // writing twice as this is a modern property hence we need to use it's prefix
+    // for compatibility in all the browsers
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba($color-secondary-light, 1),
+          rgba($color-secondary-dark, 1)
+        ),
+        url(../img/nat-5.jpg);
+      // This is adding 2 background images, but to blend them we use BG blend
+    }
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba($color-primary-light, 1),
+          rgba($color-primary-dark, 1)
+        ),
+        url(../img/nat-6.jpg);
+    }
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba($color-tertiary-light, 1),
+          rgba($color-tertiary-dark, 1)
+        ),
+        url(../img/nat-7.jpg);
+    }
+  }
+  //HEADING
+  &__heading {
     font-size: 2.8rem;
     font-weight: 300;
     text-transform: uppercase;
     color: $color-white;
     width: 50%;
     position: absolute;
-    text-align: right; 
-    right: 2rem; 
+    text-align: right;
+    right: 2rem;
     top: 10rem;
-}
+  }
 
-&__heading--span{
-    padding: 1rem 1.5rem; 
-   -webkit-box-decoration-break: clone;
-//    used to treat the heading as 2 seperate line of text so that
-// padding can be applied seperately
-    &--1{
-        background-image: linear-gradient(to right bottom, 
-        rgba($color-secondary-light, 0.8), 
-        rgba($color-secondary-dark, 0.8));
+  &__heading--span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    //    used to treat the heading as 2 seperate line of text so that
+    // padding can be applied seperately
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.8),
+        rgba($color-secondary-dark, 0.8)
+      );
     }
-    &--2{
-        background-image: linear-gradient(to right bottom, 
-        rgba($color-primary-light, 0.8), 
-        rgba($color-primary-dark, 0.8));
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      );
     }
-    &--3{
-        background-image: linear-gradient(to right bottom, 
-        rgba($color-tertiary-light, 0.8),  
-        rgba($color-tertiary-dark, 0.8)); 
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.8),
+        rgba($color-tertiary-dark, 0.8)
+      );
     }
-}
+  }
 
-&__details{
+  &__details {
     padding: 3rem;
-     ul{
-         list-style: none;
-         width: 80%;
-         margin: 0rem auto;     
-         li{
-            text-align: center; 
-            font-size: 1.5rem;
-            padding: 1rem;
-            &:not(:last-child){
-                border-bottom: 1px solid $color-light-grey-2;
-            }
-         }
-     }
-}
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0rem auto;
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-light-grey-2;
+        }
+      }
+    }
+  }
 
+  //BACK SIDE STYLING
 
-//BACK SIDE STYLING
-
-&__cta{
-    position: absolute; 
+  &__cta {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%; 
+    width: 90%;
     text-align: center;
-}
+  }
 
-&__price-box{
-text-align: center;
-color: $color-white;
-margin-bottom: 8rem;
-}
-&__price-only{
+  &__price-box {
+    text-align: center;
+    color: $color-white;
+    margin-bottom: 8rem;
+  }
+  &__price-only {
     font-size: 1.4rem;
-    text-transform: uppercase; 
-}
-&__price-value{
-    font-size: 6rem; 
+    text-transform: uppercase;
+  }
+  &__price-value {
+    font-size: 6rem;
     font-weight: 100;
-}
+  }
+
+
+
+
+
+
+  @include respond(tab-port) {
+     
+      height: auto;
+      // height of entire card
+      border-radius: 3px; 
+      background-color: $color-white; 
+      box-shadow: 0rem 1.5rem 4rem rgba($color-black, 0.15);
  
+      &__side {
+        height: auto;
+        // height of both the sides of the card 
+        position: relative; 
+        box-shadow: none; 
+
+        &--back {
+          transform: rotateY(0deg)  ;  
+          clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);         
+           }
+      }
+
+      &:hover &__side--front //.card:hover .card__side--front
+      {
+        transform: rotateY(0deg);  
+      }
+
+      &__details{
+          padding: 1rem 3rem; 
+      }
+ //FRONT SIDE STYLING
+ 
+      &__cta {
+        position: relative;
+        top: 0%;
+        left:0%;
+        transform: translate(0);
+        width: 100%;
+        padding: 7rem 4rem 4rem 4rem; 
+      } 
+
+      &__price-box {
+        margin-bottom: 3rem;  
+      } 
+      &__price-value {
+        font-size: 6rem;
+         
+      }
+    
+  }
 }

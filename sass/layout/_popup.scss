@@ -22,25 +22,46 @@
     opacity: 0; //to create an animation effect
     transform: translate(-50%, -50%) scale(.25); 
     transition: all .5s .1s; //.1s is the delay   
+
+
   }
 
   &__left {
     width: 33.33%;
     display: table-cell; // to give both[right and left] the same height
+
+    // @include respond(tab-port){
+    //   width: 100%;
+    //   display: inline-block;
+    // }
   }
   &__right {
     width: 66.67%;
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem;
+     
   }
   &__img {
     display: block;
     width: 100%;
+
+    @include respond(tab-port){ 
+      margin: 2rem; 
+      border-radius: 200px ;
+      box-shadow: 1rem 1rem .3rem rgba($color-black, .4); 
+    }
   }
   &__text {
     font-size: 1.4rem;
     margin-bottom: 4rem;
+
+    @include respond(tab-port){
+      font-size: 1.8rem; 
+      margin-bottom: 2rem; 
+      -moz-column-count: 1;
+      column-count: 1; //no. of columns  
+    }
 
     //for working in mozila
     -moz-column-count: 2;
@@ -49,7 +70,7 @@
 
     column-count: 2; //no. of columns
     column-gap: 4rem; //gap b/w the columns
-    // PS: 1em=14px here as em is dependent on fonst-size
+    // PS: 1em=14px here as em is dependent on font-size
     column-rule: 1px solid $color-light-grey-2;
 
     //for working in other browsers

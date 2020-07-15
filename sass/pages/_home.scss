@@ -69,13 +69,33 @@ margin-top: -10rem;
    rgba($color-white, .9) 50%, //50% means at halfway position only white will occur
     transparent 50%) ,  
     url(../img/nat-10.jpg);
-  background-size: cover; 
+  background-size: 100%;  //100% means image fit is respect to x-axis, cover means wrt y-axis
   border-radius: 3px;
   box-shadow: 0rem 3rem 4rem rgba($color-black, .15); 
-   height: 50rem; 
+   
 
+   @include respond(tab-land){
+    background-image: linear-gradient(110deg,  //angle at which thwe gradient occurs wrt to x-axis
+    rgba($color-white, .9), 0%, //0% means at initial position only white will occur
+    rgba($color-white, .9) 65%, //65% means at halfway position only white will occur
+     transparent 65%) ,  
+     url(../img/nat-10.jpg);
+     background-size: cover; 
+   }
+   @include respond(tab-port){
+    background-image: linear-gradient(to right bottom,  
+    rgba($color-white, .9), 0%, //0% means at initial position only white will occur
+    rgba($color-white, .9) 100%),  
+     url(../img/nat-10.jpg);
+   }
    &__form{
      width: 50%;
     padding: 6rem;
+    @include respond(tab-land){
+      width: 65%;  
+    }
+    @include respond(tab-port){ 
+      width: 100%;  
+    }
    }
 }
