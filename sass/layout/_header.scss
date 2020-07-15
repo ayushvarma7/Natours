@@ -6,7 +6,7 @@
         rgba($color-primary-light, 0.801),
         rgba($color-primary-dark, 0.801)
       ),
-      url(../img/hero.jpg);
+      url(../img/hero-small.jpg);
     /* used to place to images in the BG img */
     background-size: cover;
     background-position: top;
@@ -16,6 +16,20 @@
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     /* advance property to trim the image */
     position: relative;
+
+    //RESPONSIVE IMAGES IN CSS
+    @media (min-resolution:192dpi) and (min-width:37.5em),
+    (min-width:125em){ // comma acts as an OR statement
+       //if res is higher than this and screen width >600px then perform below OR when the screen size >2000px 
+      background-image: linear-gradient(  
+        to right bottom,
+        rgba($color-primary-light, 0.801), 
+        rgba($color-primary-dark, 0.801) 
+      ),
+      url(../img/hero.jpg);
+    }
+
+ 
 
     @include respond(phone){
       -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);

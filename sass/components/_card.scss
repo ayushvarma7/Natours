@@ -97,6 +97,37 @@
         ),
         url(../img/nat-7.jpg);
     }
+
+   
+   
+    @media (min-resolution:192dpi) and (min-width:37.5em),
+    (min-width:56.25em){
+      &--1 {
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-secondary-light, 1),
+            rgba($color-secondary-dark, 1)
+          ),
+          url(../img/nat-5.jpg);
+        
+      }
+      &--2 {
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 1),
+            rgba($color-primary-dark, 1)
+          ),
+          url(../img/nat-6.jpg);
+      }
+      &--3 {
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-tertiary-light, 1),
+            rgba($color-tertiary-dark, 1)
+          ),
+          url(../img/nat-7.jpg);
+      }
+    } //end of media
   }
   //HEADING
   &__heading {

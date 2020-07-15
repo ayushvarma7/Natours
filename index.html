@@ -69,19 +69,20 @@
                 </div>
                 <div class="col-1-of-2">
                     <div class="composition">
-                        <!--3) RESOLUTION SWITCHING method, sizes: we define viewport for diff widths
+                        <!--RESPONSIVE IMAGES IN HTML
+                            3) RESOLUTION SWITCHING method, sizes: we define viewport for diff widths
                              eg at 900px img was 151 px so 151/900=18vw(viewport width), last one(300px) 
                              is the width  of image at default screen size  -->
                         <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
-                        sizes="(max-width:900px) 18vw, (max-width:600px) 26vw, 300px"
+                        sizes="(max-width:56.25em) 18vw, (max-width:37.5em) 26vw, 300px"
                         src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
 
                         <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
-                        sizes="(max-width:900px) 18vw, (max-width:600px) 26vw, 300px"
+                        sizes="(max-width:56.25em) 18vw, (max-width:37.5em) 26vw, 300px"
                         src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
 
                         <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
-                        sizes="(max-width:900px) 18vw, (max-width:600px) 26vw, 300px"
+                        sizes="(max-width:56.25em) 18vw, (max-width:37.5em) 26vw, 300px"
                         src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
 
                         <!-- <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
@@ -247,7 +248,7 @@
                 <div class="story">
                     <figure class="story__shape">
                         <img src="img/nat-8.jpg" srcset="img/nat-8.jpg"
-                        sizes="(max-width:900px) 20vw, (max-width:600px) 30vw, 225px" 
+                        sizes="(max-width:56.25em) 20vw, (max-width:37.5em) 30vw, 225px" 
                         alt="Person on a tour" class="story__img">
                         <!-- <img src="img/nat-8.jpg" alt="Person on a tour" class="story__img"> -->
                         <figcaption class="story__caption">Mary Smith</figcaption>
@@ -270,7 +271,7 @@
                 <div class="story">
                     <figure class="story__shape">
                         <img src="img/nat-9.jpg" srcset="img/nat-9.jpg"
-                        sizes="(max-width:900px) 20vw, (max-width:600px) 30vw, 218px"
+                        sizes="(max-width:56.25em) 20vw, (max-width:37.5em) 30vw, 218px"
                          alt="Person on a tour" class="story__img" >
                         <!-- <img src="img/nat-9.jpg" alt="Person on a tour" class="story__img"> -->
                         <figcaption class="story__caption">John Doe</figcaption>
