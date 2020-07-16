@@ -38,14 +38,22 @@
         width: 15rem;
         height: 15rem;
         float: left;
+    transform: translateX(-3rem) skewX(12deg); //to create a margin and skew
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px; //if clip-path isn't supported then apply border radius
+
+    @supports(clip-path: polygon(0 0)) OR (-webkit-clip-path: polygon(0 0)){
+        -webkit-shape-outside: circle(50% at 50% 50%);
         shape-outside: circle(50% at 50% 50%);
        //circle(radius[we have taken wrt height and width] at centre points)  
     //    for shape-outside to work we need to use float 
-    clip-path: circle(50% at 50% 50%); 
-    // to form a circle
-    transform: translateX(-3rem) skewX(12deg); //to create a margin and skew
-    position: relative;
-
+        -webkit-clip-path: circle(50% at 50% 50%); 
+        clip-path: circle(50% at 50% 50%); 
+        // to form a circle 
+        border-radius: none; // as clip-path is supported hence no border-radius
+    }
+    
     @include respond(phone){
         //now since there in no skewing, so there shouldn't be no re-skewing
         transform: translateX(-3rem) skewX(0deg);

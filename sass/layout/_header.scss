@@ -1,6 +1,6 @@
 // B.E.M Approach for nesting
 .header {
-    height: 95vh;
+    height: 85vh;
     background-image: linear-gradient(
         to right bottom,
         rgba($color-primary-light, 0.801),
@@ -10,16 +10,22 @@
     /* used to place to images in the BG img */
     background-size: cover;
     background-position: top;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    // writing twice as this is a modern property hence we need to use it's prefix 
-    // for compatibility in all the browsers 
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    /* advance property to trim the image */
+   
     position: relative;
+ // SUPPORTING FEATURE QUERY; USING GRACEFUL DEGRADATION  
+    @supports(clip-path: polygon(0 0)) OR (-webkit-clip-path: polygon(0 0)){
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      // writing twice as this is a modern property hence we need to use it's prefix 
+      // for compatibility in all the browsers 
+      clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      /* advance property to trim the image */
+      height: 95vh;
+    } 
 
-    //RESPONSIVE IMAGES IN CSS
-    @media (min-resolution:192dpi) and (min-width:37.5em),
-    (min-width:125em){ // comma acts as an OR statement
+    //RESPONSIVE IMAGES IN CSS  
+    @media only screen and  (min-resolution:192dpi) and (min-width:37.5em),
+    only screen and (-webkit-min-device-pixel-ratio:2) and (min-width:37.5em), //for support in safari; 2 means 2x screen
+    only screen and (min-width:125em){ // comma acts as an OR statement
        //if res is higher than this and screen width >600px then perform below OR when the screen size >2000px 
       background-image: linear-gradient(  
         to right bottom,

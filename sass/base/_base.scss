@@ -27,3 +27,8 @@
     }
   } 
   
+
+  ::selection{ //when we select it using mouse
+    background-color: $color-primary;
+    color: $color-white;  
+  }
